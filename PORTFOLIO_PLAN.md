@@ -203,6 +203,6 @@ portfolio-with-ai/
 
 ## 6. 다음 단계
 
-1. `README.md`, `projects/pill-detection.md`, `projects/rfp-rag-system.md` 초안 작성 (완료된 프로젝트부터)
+1. ~~`README.md`, `projects/pill-detection.md`, `projects/rfp-rag-system.md` 초안 작성~~ (완료, 영상·스크린샷 자리는 TODO)
 2. `just-make-it` 에서 3장의 1~3번 작업 → 끝나면 `projects/just-make-it.md`
 3. 이력서 bullet 확정
