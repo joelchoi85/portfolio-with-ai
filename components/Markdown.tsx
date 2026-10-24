@@ -25,6 +25,12 @@ export default function Markdown({ body, file }: { body: string; file: string })
               <table>{children}</table>
             </div>
           ),
+          // mermaid 블록은 바깥 <pre> 없이 그림만 남긴다
+          pre: ({ node, children }) => {
+            const code = node?.children[0];
+            const cls = code?.type === "element" ? code.properties.className : undefined;
+            return Array.isArray(cls) && cls.includes("language-mermaid") ? <>{children}</> : <pre>{children}</pre>;
+          },
           code: ({ className, children }) =>
             className === "language-mermaid" ? (
               <Mermaid chart={String(children)} />

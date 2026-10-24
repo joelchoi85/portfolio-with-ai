@@ -15,6 +15,7 @@ export function readDoc(file: string): Doc {
       .split("\n")
       .find((l) => l.trim() && !l.startsWith("#") && !l.startsWith("|") && !l.startsWith("```"))
       ?.replace(/^>\s*/, "")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .replace(/[*`]/g, "") ?? "";
   return { file, title, summary, body };
 }
