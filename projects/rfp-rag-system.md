@@ -3,6 +3,7 @@
 > 2026.08.25 – 09.11 · 4인 팀 · 코드: [rfp-rag-system](https://github.com/codeit-ai12-project2-team4/rfp-rag-system)
 >
 > **팀 구성** 권혁상(Data) · 안찬형(PM) · 최민식(Generation) · 최중열(Retrieval)
+>
 > **내 범위** 검색 전체, 서빙 운영(모델 서버·API·크론), 평가 체계. 팀 커밋 301개 중 234개
 
 <!-- TODO: 데모 영상 (가지고 있는 녹화본) -->

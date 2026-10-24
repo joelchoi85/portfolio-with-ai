@@ -4,6 +4,7 @@
 > 코드: [project1-3team](https://github.com/taemin050-sys/project1-3team) (`beamsearch/CJY/`) · FE: [medication-detect-fe](https://github.com/joelchoi85/medication-detect-fe)
 >
 > **팀 구성** 이태민(PM) · 이형기(Model) · 장한빈(Experiment) · 최중열(Experiment → 서빙/배포) · 홍우석(Data)
+>
 > **내 범위** 누수 감사와 분할, 실험·HPO, 실사진 평가와 합성 데이터, 검출 API·웹앱 배포
 
 <!-- TODO: 앱 스크린샷 -->
