@@ -28,7 +28,7 @@
 
 `YOLO11` `Optuna` `perceptual hash` `SAM` `Hugging Face Spaces` `Next.js(Vercel)` `공공데이터 API`
 
-### Just Make It — AI 광고 이미지 생성 서비스 *(진행 중)*
+### [Just Make It](projects/just-make-it.md) — AI 광고 이미지 생성 서비스 *(진행 중)*
 2026.10 – · 3인 · PM + 서비스 개발 + CI/CD
 
 소상공인용 광고 이미지 생성. 로컬 GPU 모델과 OpenAI 를 섞어 비용을 줄이는 구조. GitHub Actions 배포, VRAM 동시 상주 설계.
@@ -44,5 +44,7 @@
 | RFP RAG System | [codeit-ai12-project2-team4/rfp-rag-system](https://github.com/codeit-ai12-project2-team4/rfp-rag-system) | 백엔드 종료 · 영상 참고 |
 | 경구약제 검출 | [taemin050-sys/project1-3team](https://github.com/taemin050-sys/project1-3team) · [FE](https://github.com/joelchoi85/medication-detect-fe) | 백엔드 종료 |
 | Just Make It | [sprint-ai-12-4team/just-make-it](https://github.com/sprint-ai-12-4team/just-make-it) | 영상 준비 중 |
+
+더 짧게 보려면 → [의사결정 기록](decisions/) · [이력서](resume/resume.md)
 
 > 세 프로젝트 모두 프론트엔드는 Vercel 에 남아 있지만 GPU VM 은 내려가 있습니다. 화면은 열리고 요청은 실패합니다.

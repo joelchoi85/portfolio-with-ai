@@ -98,7 +98,7 @@ MLOps 공고가 묻는 "서빙 / 평가·실험 / 자동화·배포" 세 축에 
 | 축 | 한 일 | 근거 커밋 |
 |---|---|---|
 | **배포 자동화** | GitHub Actions → SSH → GCP L4 VM 에서 `docker compose up --build`. main/dev 브랜치별 배포, safe.directory·브랜치명 추출 버그 수정 | `d8b7574`, `3e2c486`, `ac53217`, `4736822` |
-| | CD 빌드가 10분 뒤 멈추는 문제 추적 중 (RAM 16GB VM 위에서 빌드) | `e74e5aa` |
+| | CD 빌드가 10분 뒤 멈추던 문제 (RAM 16GB VM 위에서 빌드). dev 에서 해결됨 — 원인과 해결법은 페이지에 직접 채울 것 | `e74e5aa` |
 | **모델 운영** | VRAM 24GB 안의 동시 상주 조합을 표로 설계(klein 4B + Z-Image-Turbo ≈ 22GB 등), 라이선스 필터링, FastAPI+diffusers vs ComfyUI 비교 | `5e62b09`, docs/product/model_selection.md |
 | | 생성 직후 `empty_cache`, 타이밍 제한 등 VRAM OOM 회피 적용 | `f5cf7f0`, `b4297bb` |
 | **서비스 백엔드** | SQLite 생성 기록·상세페이지 저장, 재시작 시 처리 중 작업 정리, 이미지 영구 URL | `1aa5c90` |
@@ -124,15 +124,11 @@ MLOps 공고가 묻는 "서빙 / 평가·실험 / 자동화·배포" 세 축에 
 | 컨테이너 오케스트레이션 | ❌ | Docker Compose + systemd 까지 |
 | IaC | ❌ | VM 을 손으로 만들었다 |
 
-진행 중인 `just-make-it` 에서 아래를 채우면 "배운 것" 이 아니라 "운영한 것" 으로 쓸 수 있다. 우선순위 순.
+이 칸들은 프로젝트 코드를 더 고쳐서 채우지 않는다. `just-make-it` 은 팀 일정대로 고도화를 이어 가고, 포트폴리오는 이미 한 일로 만든다. 빈 칸은 이렇게 다룬다.
 
-1. **CD 10분 멈춤 해결을 레지스트리 기반 배포로**
-   지금은 RAM 16GB VM 이 직접 빌드한다. Actions 러너에서 이미지를 빌드해 GCP Artifact Registry 에 올리고, VM 은 `pull` 만 하게 바꾼다. 원인 분석 → 구조 변경 → 배포 시간 전후 비교가 그대로 한 편의 사례가 된다.
-2. **CI 추가**: PR 마다 `ruff` + `pytest`(이미 `tests/test_service.py` 가 있다) + 이미지 빌드 확인
-3. **관측**: FastAPI 에 Prometheus 메트릭(요청 수, 생성 지연 p50/p95, 로컬↔OpenAI 우회 비율, VRAM 사용량) → Grafana 대시보드 한 장. 스크린샷이 포트폴리오에서 제일 설득력 있다
-4. **부하 테스트**: locust 로 동시 요청을 걸어 "대기 20초 넘으면 OpenAI 우회" 정책이 실제로 언제 발동하는지, 비용이 얼마인지 측정
-5. **실험 추적**: `core/evaluation/run_eval.py` 결과를 MLflow 에 기록 (모델·스텝·지연·VRAM 피크)
-6. (여유 있으면) VM 생성을 Terraform 한 파일로
+- **프로젝트 페이지 회고에 "다시 한다면"으로 적는다.** 예: cron 대신 스케줄러와 알림, 실험 결과를 MLflow 로 묶기, VM 이 직접 빌드하지 않고 레지스트리에서 이미지 받기. 겪은 문제에서 나온 개선안이라 말에 무게가 실린다
+- **면접 답변으로 준비한다.** "모니터링은 어떻게 하셨나요?" 에는 `/health` 에 마지막 갱신 결과를 노출한 것까지가 한 일이고, 다음엔 무엇을 붙이겠다고 답한다. 없는 경험을 있다고 쓰지 않는다
+- `just-make-it` 고도화 중에 CI·모니터링이 실제로 들어가면 그때 페이지에 추가한다
 
 RFP 프로젝트는 끝났으니 코드를 더 손대기보다 **회고 문서**로 보강한다. 특히 "평가 세트가 조용히 바꿔치기되고 있었다"(`39f588d`), "코퍼스 비교인데 서로 다른 시험지로 채점"(`0c3c28d`) 같은 평가 파이프라인 버그는 MLOps 면접관이 좋아하는 소재다.
 
@@ -204,5 +200,6 @@ portfolio-with-ai/
 ## 6. 다음 단계
 
 1. ~~`README.md`, `projects/pill-detection.md`, `projects/rfp-rag-system.md` 초안 작성~~ (완료, 영상·스크린샷 자리는 TODO)
-2. `just-make-it` 에서 3장의 1~3번 작업 → 끝나면 `projects/just-make-it.md`
-3. 이력서 bullet 확정
+2. ~~`projects/just-make-it.md` (진행 중 표시), `decisions/` 5편, `resume/resume.md` 초안~~ (완료)
+3. 영상·스크린샷 채우기, 이력서 문장 본인 검토
+4. `just-make-it` 마무리 후 페이지 갱신 (최종 구조, 영상, 고도화 결과)
