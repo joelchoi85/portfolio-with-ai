@@ -17,21 +17,21 @@
 ### [RFP RAG System](projects/rfp-rag-system.md) — 공공입찰 제안요청서 Q&A
 2026.08 – 09 · 4인 · Retrieval Engineer → 검색·서빙·평가 전반 (팀 커밋 78%)
 
-나라장터 RFP 를 매일 수집해 검색 가능한 상태로 유지하고, 근거 인용과 함께 답하는 RAG 서비스. 자체 GPU 서빙, 증분 색인, 무중단 리로드, 160문항 평가 체계.
+나라장터 RFP를 매일 수집해 검색 가능한 상태로 유지하고, 근거 인용과 함께 답하는 RAG 서비스. 자체 GPU 서빙, 증분 색인, 무중단 리로드, 160문항 평가 체계.
 
 `FastAPI` `SGLang` `TEI` `LanceDB` `BM25/Kiwi` `Docker` `systemd` `cron` `Next.js(Vercel)`
 
 ### [헬스잇 경구약제 검출](projects/pill-detection.md) — 알약 사진 객체 검출
 2026.06 – 07 · 5인 · Experimentation Lead → 서빙/배포
 
-검증 0.99 점수를 의심하는 데서 시작한 프로젝트. 누수 감사로 부풀려진 점수를 걸러내고, 실사진 평가셋으로 배포 환경의 진짜 성능(recall 0.077)을 드러냈다. 검출 API 와 약 정보 웹앱까지 배포.
+검증 0.99 점수를 의심하는 데서 시작한 프로젝트. 누수 감사로 부풀려진 점수를 걸러내고, 실사진 평가셋으로 배포 환경의 진짜 성능(recall 0.077)을 드러냈다. 검출 API와 약 정보 웹앱까지 배포.
 
 `YOLO11` `Optuna` `perceptual hash` `SAM` `Hugging Face Spaces` `Next.js(Vercel)` `공공데이터 API`
 
 ### [Just Make It](projects/just-make-it.md) — AI 광고 이미지 생성 서비스 *(진행 중)*
 2026.10 – · 3인 · PM + 서비스 개발 + CI/CD
 
-소상공인용 광고 이미지 생성. 로컬 GPU 모델과 OpenAI 를 섞어 비용을 줄이는 구조. GitHub Actions 배포, VRAM 동시 상주 설계.
+소상공인용 광고 이미지 생성. 로컬 GPU 모델과 OpenAI를 섞어 비용을 줄이는 구조. GitHub Actions 배포, VRAM 동시 상주 설계.
 
 `FastAPI` `diffusers` `Ollama` `GitHub Actions` `GCP` `Docker Compose` `SQLite`
 
@@ -47,4 +47,4 @@
 
 더 짧게 보려면 → [의사결정 기록](decisions/) · [이력서](resume/resume.md)
 
-> 세 프로젝트 모두 프론트엔드는 Vercel 에 남아 있지만 GPU VM 은 내려가 있습니다. 화면은 열리고 요청은 실패합니다.
+> 세 프로젝트 모두 프론트엔드는 Vercel에 남아 있지만 GPU VM은 내려가 있습니다. 화면은 열리고 요청은 실패합니다.
